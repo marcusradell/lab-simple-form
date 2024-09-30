@@ -2,7 +2,8 @@ import http from "http";
 
 http
   .createServer(function (req, res) {
-    res.write("Hello World!");
+    res.setHeader("Content-Type", "text/html");
+    res.write(`<h1>Successfully posted the data</h1>`);
     res.end();
   })
   .listen(8080);
