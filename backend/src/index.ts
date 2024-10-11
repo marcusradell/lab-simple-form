@@ -2,11 +2,11 @@ import http from "http";
 
 http
   .createServer(function (req, res) {
-    const headers = {
+    res.writeHead(200, {
       "Content-Type": "application/json",
-    };
-    res.writeHead(200, headers);
-    res.write(`{"ok": true}`);
+    });
+    const result = JSON.stringify({ ok: true });
+    res.write(result);
     res.end();
   })
   .listen(8080);
