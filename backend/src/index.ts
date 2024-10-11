@@ -2,8 +2,11 @@ import http from "http";
 
 http
   .createServer(function (req, res) {
-    res.setHeader("Content-Type", "text/html");
-    res.write(`<h1>Successfully posted the data</h1>`);
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    res.writeHead(200, headers);
+    res.write(`{"ok": true}`);
     res.end();
   })
   .listen(8080);
